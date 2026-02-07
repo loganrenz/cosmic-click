@@ -1,75 +1,35 @@
-# Nuxt Minimal Starter
+# Nuxt 4 Template
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A clean, minimal starter template for Nuxt 4, Nuxt UI v4, Tailwind CSS 4, and TypeScript.
 
-## Setup
+## What's included
 
-Make sure to install dependencies:
+- **Nuxt 4** - The latest evolution of the Nuxt framework.
+- **Nuxt UI v4** - A collection of high-quality components for building beautiful interfaces.
+- **Tailwind CSS 4** - The next generation of utility-first CSS.
+- **TypeScript** - Full type safety out of the box.
 
-```bash
-# npm
-npm install
+## Quick Start
 
-# pnpm
-pnpm install
+1. **Use this template** to create a new repository.
+2. **Clone** your new repository:
+   ```bash
+   git clone <your-repo-url>
+   cd nuxt-v4-template
+   ```
+3. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+4. **Start development server**:
+   ```bash
+   npm run dev
+   ```
 
-# yarn
-yarn install
+## Customization
 
-# bun
-bun install
-```
+### Colors
+Primary and neutral colors can be configured in `app/app.config.ts`. By default, it uses `green` as primary and `slate` as neutral.
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+### Fonts
+Global styles and custom font imports are located in `app/assets/css/main.css`. The template includes `@nuxt/fonts` for easy font management.
