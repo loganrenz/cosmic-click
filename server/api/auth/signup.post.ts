@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
   const parsed = signupSchema.safeParse(body)
 
   if (!parsed.success) {
-    throw createError({ statusCode: 400, message: parsed.error.issues[0].message })
+    throw createError({ statusCode: 400, message: parsed.error?.issues[0]?.message || 'Invalid input' })
   }
 
   const { email, password, name } = parsed.data

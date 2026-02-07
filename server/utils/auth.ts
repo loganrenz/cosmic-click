@@ -20,7 +20,7 @@ async function hashPassword(password: string): Promise<string> {
     ['deriveBits'],
   )
   const hash = await crypto.subtle.deriveBits(
-    { name: 'PBKDF2', salt, iterations: PBKDF2_ITERATIONS, hash: 'SHA-256' },
+    { name: 'PBKDF2', salt: salt as any, iterations: PBKDF2_ITERATIONS, hash: 'SHA-256' },
     key,
     HASH_LENGTH * 8,
   )
@@ -31,6 +31,7 @@ async function hashPassword(password: string): Promise<string> {
 
 async function verifyPassword(password: string, stored: string): Promise<boolean> {
   const [saltHex, expectedHex] = stored.split(':')
+  if (!saltHex || !expectedHex) return false
   const salt = hexToBytes(saltHex)
   const key = await crypto.subtle.importKey(
     'raw',
@@ -40,7 +41,7 @@ async function verifyPassword(password: string, stored: string): Promise<boolean
     ['deriveBits'],
   )
   const hash = await crypto.subtle.deriveBits(
-    { name: 'PBKDF2', salt, iterations: PBKDF2_ITERATIONS, hash: 'SHA-256' },
+    { name: 'PBKDF2', salt: salt as any, iterations: PBKDF2_ITERATIONS, hash: 'SHA-256' },
     key,
     HASH_LENGTH * 8,
   )
@@ -96,12 +97,12 @@ export async function verifyCredentials(email: string, password: string): Promis
 
 export async function getUserById(id: string): Promise<User | null> {
   const db = useDatabase()
-  return db.select().from(schema.users).where(eq(schema.users.id, id)).get() ?? null
+  return (await db.select().from(schema.users).where(eq(schema.users.id, id)).get()) ?? null
 }
 
 export async function getUserByEmail(email: string): Promise<User | null> {
   const db = useDatabase()
-  return db.select().from(schema.users).where(eq(schema.users.email, email.toLowerCase().trim())).get() ?? null
+  return (await db.select().from(schema.users).where(eq(schema.users.email, email.toLowerCase().trim())).get()) ?? null
 }
 
 /**

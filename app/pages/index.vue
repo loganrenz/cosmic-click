@@ -1,21 +1,23 @@
 <template>
-  <div class="flex flex-col items-center justify-center min-h-screen text-center px-4">
-    <div class="space-y-6 max-w-2xl">
-      <h1 class="text-4xl font-bold tracking-tight sm:text-6xl text-gray-900 dark:text-white">
-        Your app is ready
+  <div class="min-h-screen bg-gray-50 dark:bg-gray-950">
+    <!-- Hero -->
+    <div class="text-center pt-16 pb-10 px-4">
+      <h1 class="text-4xl font-bold tracking-tight sm:text-5xl text-gray-900 dark:text-white">
+        Nuxt 4 Template
       </h1>
-      <p class="text-lg text-gray-600 dark:text-gray-400">
-        Start building your next big thing with the Nuxt 4 stack.
+      <p class="mt-3 text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
+        Cloudflare Pages · D1 · Auth · MapKit JS — production-ready from the start.
       </p>
-      
-      <div class="flex flex-wrap justify-center gap-2 mt-8">
+
+      <div class="flex flex-wrap justify-center gap-2 mt-6">
         <UBadge color="neutral" variant="subtle" size="lg">Nuxt 4</UBadge>
         <UBadge color="neutral" variant="subtle" size="lg">Nuxt UI v4</UBadge>
         <UBadge color="neutral" variant="subtle" size="lg">Tailwind CSS 4</UBadge>
+        <UBadge color="neutral" variant="subtle" size="lg">Cloudflare D1</UBadge>
         <UBadge color="neutral" variant="subtle" size="lg">TypeScript</UBadge>
       </div>
 
-      <div class="mt-10 flex items-center justify-center gap-x-6">
+      <div class="mt-8 flex items-center justify-center gap-x-4">
         <UButton
           to="https://ui3.nuxt.com"
           target="_blank"
@@ -34,6 +36,18 @@
         >
           GitHub
         </UButton>
+      </div>
+    </div>
+
+    <!-- Demo panels -->
+    <div class="max-w-5xl mx-auto px-4 pb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <ClientOnly>
+          <AuthDemo />
+        </ClientOnly>
+        <ClientOnly>
+          <MapKitDemo />
+        </ClientOnly>
       </div>
     </div>
   </div>

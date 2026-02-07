@@ -10,13 +10,17 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "typecheck": "npx nuxt typecheck",
-    "deploy": "nuxt build && wrangler pages deploy dist"
+    "deploy": "nuxt build && wrangler pages deploy dist",
+    "sitemap:submit": "npx jiti tools/gsc-toolbox.ts submit",
+    "gsc:init": "npx jiti tools/gsc-toolbox.ts init",
+    "gsc:verify": "npx jiti tools/gsc-toolbox.ts verify"
   },
   "dependencies": {
     "@nuxt/ui": "^4.3.0",
     "drizzle-orm": "^0.44.0",
     "nanoid": "^5.1.5",
     "nuxt": "^4.3.0",
+    "posthog-js": "^1.228.0",
     "tailwindcss": "^4.1.18",
     "vue": "^3.5.27",
     "vue-router": "^4.6.4",
@@ -25,8 +29,12 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250620.0",
     "@nuxt/fonts": "^0.11.4",
+    "@nuxtjs/robots": "^5.7.0",
+    "@nuxtjs/sitemap": "^7.6.0",
     "@types/node": "^22.15.0",
+    "dotenv": "^17.2.4",
     "drizzle-kit": "^0.31.0",
+    "googleapis": "^144.0.0",
     "wrangler": "^4.20.0"
   }
 }

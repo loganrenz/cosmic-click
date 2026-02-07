@@ -113,7 +113,7 @@ function derToRaw(der: Uint8Array): Uint8Array {
   // Parse r
   if (der[offset] !== 0x02) throw new Error('Invalid DER signature')
   offset++
-  let rLen = der[offset++]
+  let rLen = der[offset++] || 0
   if (rLen === 33 && der[offset] === 0x00) { offset++; rLen = 32 }
   raw.set(der.subarray(offset, offset + Math.min(rLen, 32)), 32 - Math.min(rLen, 32))
   offset += rLen
@@ -121,7 +121,7 @@ function derToRaw(der: Uint8Array): Uint8Array {
   // Parse s
   if (der[offset] !== 0x02) throw new Error('Invalid DER signature')
   offset++
-  let sLen = der[offset++]
+  let sLen = der[offset++] || 0
   if (sLen === 33 && der[offset] === 0x00) { offset++; sLen = 32 }
   raw.set(der.subarray(offset, offset + Math.min(sLen, 32)), 64 - Math.min(sLen, 32))
 
@@ -172,7 +172,7 @@ export function decodeAppleIdToken(idToken: string): AppleIdTokenPayload {
   }
 
   const payload = JSON.parse(
-    new TextDecoder().decode(base64urlDecode(parts[1])),
+    new TextDecoder().decode(base64urlDecode(parts[1] as string)),
   ) as AppleIdTokenPayload
 
   // Basic validation

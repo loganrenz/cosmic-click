@@ -1,8 +1,14 @@
+import { resolve } from 'node:path'
 import pkg from './package.json'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxt/ui', '@nuxt/fonts'],
+  modules: [
+    '@nuxt/ui',
+    '@nuxt/fonts',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots'
+  ],
   css: ['~/assets/css/main.css'],
 
   compatibilityDate: '2025-07-15',
@@ -25,7 +31,7 @@ export default defineNuxtConfig({
     }
   },
 
-  runtimeConfig: {
+    runtimeConfig: {
     // Server-only keys (override via env vars)
     appleTeamId: process.env.APPLE_TEAM_ID || '',
     appleClientId: process.env.APPLE_CLIENT_ID || '',
@@ -33,10 +39,20 @@ export default defineNuxtConfig({
     appleSecretKey: process.env.APPLE_SECRET_KEY || '',
 
     public: {
-      // Override via NUXT_PUBLIC_MAPKIT_TOKEN env var
-      mapkitToken: 'eyJraWQiOiI4N1ZLTUI0QlAzIiwidHlwIjoiSldUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJGVlNZN0NGQzNTIiwiaWF0IjoxNzcwNDg1MjYwLCJvcmlnaW4iOiIqLnBhZ2VzLmRldiJ9.Jq4v0eJUZJaSQccmZLZpt0m_OYGCn3q27s4Grl0gIZ97hD7ozKx1bGGuFwTD_mvfn7Bd_VMhSWHIGoSmOfxewA',
-      appUrl: process.env.APP_URL || 'http://localhost:3000'
+      // Analytics
+      posthogPublicKey: process.env.POSTHOG_PUBLIC_KEY || '',
+      posthogHost: process.env.POSTHOG_HOST || 'https://us.i.posthog.com',
+      appUrl: process.env.SITE_URL || 'https://nuxt-v4-template.pages.dev'
     }
+  },
+
+  site: {
+    url: 'https://nuxt-v4-template.pages.dev',
+    name: 'Nuxt v4 Template'
+  },
+
+  sitemap: {
+    sources: ['/api/sitemap-urls']
   },
 
   nitro: {

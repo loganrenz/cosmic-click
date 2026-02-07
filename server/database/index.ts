@@ -1,15 +1,15 @@
-import { drizzle, type DrizzleSqliteD1Database } from 'drizzle-orm/d1'
+import { drizzle, type DrizzleD1Database } from 'drizzle-orm/d1'
 import * as schema from './schema'
 
 export { schema }
 
-let _db: DrizzleSqliteD1Database<typeof schema> | null = null
+let _db: DrizzleD1Database<typeof schema> | null = null
 
 /**
  * Initialise the Drizzle ORM instance from a Cloudflare D1 binding.
  * Safe to call multiple times – only the first call creates the instance.
  */
-export function initDatabase(d1: D1Database) {
+export function initDatabase(d1: any) {
   if (!_db) {
     _db = drizzle(d1, { schema })
   }

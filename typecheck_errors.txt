@@ -1,0 +1,76 @@
+
+[nuxt-site-config]  WARN  [Nuxt Site Config] Invalid config provided, please correct:
+
+[nuxt-site-config]   - url "http://localhost:3000" from nuxt-site-config:config should not be localhost
+[nuxt-site-config] 
+ℹ Nuxt Icon server bundle mode is set to remote
+app/components/MapKitDemo.vue(90,29): error TS18048: 'austin' is possibly 'undefined'.
+app/components/MapKitDemo.vue(90,41): error TS18048: 'austin' is possibly 'undefined'.
+app/components/MapKitDemo.vue(91,33): error TS18048: 'austin' is possibly 'undefined'.
+app/components/MapKitDemo.vue(91,46): error TS18048: 'austin' is possibly 'undefined'.
+app/components/MapKitDemo.vue(100,7): error TS2774: This condition will always return true since this function is always defined. Did you mean to call it instead?
+app/components/MapKitDemo.vue(106,11): error TS2774: This condition will always return true since this function is always defined. Did you mean to call it instead?
+server/api/auth/login.post.ts(14,51): error TS2532: Object is possibly 'undefined'.
+server/api/auth/signup.post.ts(15,51): error TS2532: Object is possibly 'undefined'.
+server/database/index.ts(1,24): error TS2724: '"drizzle-orm/d1"' has no exported member named 'DrizzleSqliteD1Database'. Did you mean 'DrizzleD1Database'?
+server/database/index.ts(12,34): error TS2304: Cannot find name 'D1Database'.
+server/utils/apple-auth.ts(118,50): error TS2345: Argument of type 'number | undefined' is not assignable to parameter of type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+server/utils/apple-auth.ts(118,76): error TS2345: Argument of type 'number | undefined' is not assignable to parameter of type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+server/utils/apple-auth.ts(119,13): error TS18048: 'rLen' is possibly 'undefined'.
+server/utils/apple-auth.ts(126,50): error TS2345: Argument of type 'number | undefined' is not assignable to parameter of type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+server/utils/apple-auth.ts(126,76): error TS2345: Argument of type 'number | undefined' is not assignable to parameter of type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+server/utils/apple-auth.ts(175,46): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+server/utils/auth.ts(34,27): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+server/utils/auth.ts(43,23): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(algorithm: AlgorithmIdentifier | EcdhKeyDeriveParams | HkdfParams | Pbkdf2Params, baseKey: CryptoKey, length?: number | ... 1 more ... | undefined): Promise<...>', gave the following error.
+    Type 'Uint8Array<ArrayBufferLike>' is not assignable to type 'BufferSource'.
+      Type 'Uint8Array<ArrayBufferLike>' is not assignable to type 'ArrayBufferView<ArrayBuffer>'.
+        Types of property 'buffer' are incompatible.
+          Type 'ArrayBufferLike' is not assignable to type 'ArrayBuffer'.
+            Type 'SharedArrayBuffer' is missing the following properties from type 'ArrayBuffer': resizable, resize, detached, transfer, transferToFixedLength
+  Overload 2 of 2, '(algorithm: AlgorithmIdentifier | EcdhKeyDeriveParams | HkdfParams | Pbkdf2Params, baseKey: CryptoKey, length?: number | ... 1 more ... | undefined): Promise<...>', gave the following error.
+    Type 'Uint8Array<ArrayBufferLike>' is not assignable to type 'BufferSource'.
+      Type 'Uint8Array<ArrayBufferLike>' is not assignable to type 'ArrayBufferView<ArrayBuffer>'.
+        Types of property 'buffer' are incompatible.
+          Type 'ArrayBufferLike' is not assignable to type 'ArrayBuffer'.
+            Type 'SharedArrayBuffer' is missing the following properties from type 'ArrayBuffer': resizable, resize, detached, transfer, transferToFixedLength
+server/api/auth/login.post.ts(14,51): error TS2532: Object is possibly 'undefined'.
+server/api/auth/signup.post.ts(15,51): error TS2532: Object is possibly 'undefined'.
+server/database/index.ts(1,24): error TS2724: '"drizzle-orm/d1"' has no exported member named 'DrizzleSqliteD1Database'. Did you mean 'DrizzleD1Database'?
+server/database/index.ts(12,34): error TS2552: Cannot find name 'D1Database'. Did you mean 'IDBDatabase'?
+server/middleware/d1.ts(9,57): error TS2552: Cannot find name 'D1Database'. Did you mean 'IDBDatabase'?
+server/utils/apple-auth.ts(118,50): error TS2345: Argument of type 'number | undefined' is not assignable to parameter of type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+server/utils/apple-auth.ts(118,76): error TS2345: Argument of type 'number | undefined' is not assignable to parameter of type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+server/utils/apple-auth.ts(119,13): error TS18048: 'rLen' is possibly 'undefined'.
+server/utils/apple-auth.ts(126,50): error TS2345: Argument of type 'number | undefined' is not assignable to parameter of type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+server/utils/apple-auth.ts(126,76): error TS2345: Argument of type 'number | undefined' is not assignable to parameter of type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+server/utils/apple-auth.ts(175,46): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+server/utils/auth.ts(34,27): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+server/utils/auth.ts(43,23): error TS2322: Type 'Uint8Array<ArrayBufferLike>' is not assignable to type 'BufferSource'.
+  Type 'Uint8Array<ArrayBufferLike>' is not assignable to type 'ArrayBufferView<ArrayBuffer>'.
+    Types of property 'buffer' are incompatible.
+      Type 'ArrayBufferLike' is not assignable to type 'ArrayBuffer'.
+        Type 'SharedArrayBuffer' is missing the following properties from type 'ArrayBuffer': resizable, resize, detached, transfer, transferToFixedLength
+
+ ERROR  Process exited with non-zero status (2)
+
+    at G._waitForOutput (node_modules/tinyexec/dist/main.js:574:92)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Object.run (node_modules/@nuxt/cli/dist/typecheck-AzdvH0Q7.mjs:66:3)
+    at async runCommand (node_modules/@nuxt/cli/node_modules/citty/dist/index.mjs:196:47)
+    at async runCommand (node_modules/@nuxt/cli/node_modules/citty/dist/index.mjs:193:21)
+    at async runMain (node_modules/@nuxt/cli/node_modules/citty/dist/index.mjs:304:10) 
+
+

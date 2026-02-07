@@ -6,7 +6,7 @@ import { initDatabase } from '../database'
  */
 export default defineEventHandler((event) => {
   try {
-    const d1 = (event.context.cloudflare?.env as { DB?: D1Database })?.DB
+    const d1 = (event.context.cloudflare?.env as { DB?: any })?.DB
     if (d1) {
       initDatabase(d1)
     }
