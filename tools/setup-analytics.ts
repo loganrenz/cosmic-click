@@ -352,7 +352,9 @@ async function runPosthogSetupOrSkip(): Promise<boolean> {
     }
     if (msg.includes('403') || msg.includes('permission_denied') || msg.includes('maximum limit')) {
       console.log()
-      console.log('  ⚠️  PostHog: project limit or permission. Add POSTHOG_PUBLIC_KEY manually or upgrade plan.')
+      console.log('  ⚠️  PostHog: project limit or permission.')
+      console.log('  → Use a single shared project: set POSTHOG_PUBLIC_KEY in nuxt_template (and in each app\'s Doppler) to one project\'s API key.')
+      console.log('  → Set APP_NAME in each app\'s Doppler so events are partitioned by app in PostHog (filter by property "app").')
       console.log()
       return false
     }

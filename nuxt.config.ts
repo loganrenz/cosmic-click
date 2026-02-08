@@ -42,7 +42,10 @@ export default defineNuxtConfig({
       // Analytics
       posthogPublicKey: process.env.POSTHOG_PUBLIC_KEY || '',
       posthogHost: process.env.POSTHOG_HOST || 'https://us.i.posthog.com',
-      appUrl: process.env.SITE_URL || 'https://nuxt-v4-template.pages.dev'
+      gaMeasurementId: process.env.GA_MEASUREMENT_ID || '',
+      appUrl: process.env.SITE_URL || 'https://nuxt-v4-template.pages.dev',
+      // App name for partitioning in a single PostHog project (set APP_NAME in Doppler)
+      appName: process.env.APP_NAME || pkg.name || ''
     }
   },
 

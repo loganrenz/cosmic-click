@@ -5,15 +5,19 @@
 GA_ACCOUNT_ID
 POSTHOG_PERSONAL_API_KEY
 POSTHOG_HOST
+# Single PostHog project for all apps (no per-app projects): set POSTHOG_PUBLIC_KEY in nuxt_template;
+# setup-new-app copies it into each app. Each app sets APP_NAME so events are partitioned (filter by "app" in PostHog).
+POSTHOG_PUBLIC_KEY
 GSC_SERVICE_ACCOUNT_JSON
 GSC_USER_EMAIL
 # Optional: APPLE_*, NUXT_PUBLIC_MAPKIT_TOKEN
 
 # --- Per-app Doppler project (e.g. simple-game) ---
-# Create: doppler projects create <app-name> && doppler configs create base --project <app-name> --production-branch main
-# Copy from nuxt_template (dashboard or CLI) then set:
+# setup-new-app sets: SITE_URL, APP_NAME, and copies POSTHOG_PUBLIC_KEY from nuxt_template (single shared project).
+# setup:all writes GA_MEASUREMENT_ID into this project.
 SITE_URL
-# setup:all will write POSTHOG_PUBLIC_KEY and GA_MEASUREMENT_ID into this project.
+APP_NAME
+# POSTHOG_PUBLIC_KEY copied from nuxt_template (shared project); events partitioned by APP_NAME.
 
 # --- Full key list (for copy into new project) ---
 APP_URL

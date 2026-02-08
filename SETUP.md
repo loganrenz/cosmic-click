@@ -22,6 +22,7 @@ Replace `<APP_NAME>` with your app slug (e.g. `my-app`). If the repo lives under
   - `GA_ACCOUNT_ID`
   - `POSTHOG_PERSONAL_API_KEY`
   - `POSTHOG_HOST`
+  - **`POSTHOG_PUBLIC_KEY`** – Use one shared PostHog project for all apps (avoids project limit). Create a single project in PostHog (e.g. "nuxt-template"), copy its project API key into nuxt_template. New apps get this key copied automatically; events are partitioned by `APP_NAME` (filter by property **app** in PostHog).
   - `GSC_SERVICE_ACCOUNT_JSON` (base64 of Google service account JSON; run `node scripts/doppler-b64-key.mjs ./path/to/key.json`)
   - `GSC_USER_EMAIL`
 - **Cloudflare** account (Wrangler authenticated)
@@ -31,7 +32,7 @@ Replace `<APP_NAME>` with your app slug (e.g. `my-app`). If the repo lives under
 | Variable     | Example                         | Description |
 |-------------|----------------------------------|-------------|
 | **APP_NAME** | `my-app`                        | Slug for the app (package name, Doppler project, Pages project, D1 DB name). Use lowercase, hyphens only. |
-| **SITE_URL** | `https://my-app.pages.dev`      | Full public URL of the app (Cloudflare Pages URL). |
+| **SITE_URL** | `https://my-app.pages.dev`      | Full public URL of the app. **Use the exact URL Cloudflare gives you**—if Pages assigns a suffixed URL (e.g. `my-app-47d.pages.dev`), use that everywhere. |
 
 ## One-command setup (recommended)
 
@@ -80,6 +81,8 @@ Setup is not complete until you run these two commands from the app directory:
    ```
 
 Replace `https://my-app.pages.dev` with your actual SITE_URL (the same value you passed to the setup script).
+
+**If GSC verify fails** with *"The necessary verification token could not be found on your site"*: (1) The production URL may not be serving yet—wait 1–2 minutes or run deploy again, then retry. (2) **If Cloudflare gave you a suffixed URL** (e.g. `my-app-47d.pages.dev` instead of `my-app.pages.dev`), GSC must use that same URL. Re-register and verify with it: run `SITE_URL="https://<your-real-url>.pages.dev" doppler run --project nuxt_template --config base -- npm run setup:gsc` (registers the real URL and creates the verification file), then deploy, then run `setup:gsc:verify` with the same `SITE_URL`.
 
 ## Optional: run steps manually
 

@@ -129,8 +129,22 @@ try {
   if (!e.message?.includes('already exists') && !e.message?.includes('Unable to create')) throw e
   console.log('  (Doppler config already exists)')
 }
-run(`doppler secrets set SITE_URL="${SITE_URL}" --project ${DOPPLER_PROJ} --config ${DOPPLER_CFG}`)
-console.log('  ✓ Doppler SITE_URL set')
+run(`doppler secrets set SITE_URL="${SITE_URL}" APP_NAME="${APP_NAME}" --project ${DOPPLER_PROJ} --config ${DOPPLER_CFG}`)
+console.log('  ✓ Doppler SITE_URL + APP_NAME set')
+
+// Copy shared PostHog project key from nuxt_template so all apps use one project (partitioned by app)
+try {
+  const sharedKey = run(
+    `doppler secrets get POSTHOG_PUBLIC_KEY --project nuxt_template --config base --plain 2>/dev/null || true`,
+    { silent: true }
+  ).trim()
+  if (sharedKey) {
+    run(`doppler secrets set POSTHOG_PUBLIC_KEY="${sharedKey}" --project ${DOPPLER_PROJ} --config ${DOPPLER_CFG}`)
+    console.log('  ✓ Doppler POSTHOG_PUBLIC_KEY (shared project) set')
+  }
+} catch {
+  // ignore
+}
 
 // 6. Pages project
 try {
@@ -154,6 +168,11 @@ console.log()
 console.log('══════════════════════════════════════════════════════════')
 console.log('  Setup complete. Next steps:')
 console.log('  1. Deploy:    doppler run -- npm run deploy')
-console.log('  2. GSC verify:')
+console.log('  2. Wait for production to be live at', SITE_URL)
+console.log('     (Cloudflare Pages may serve a preview URL first; production can take 1–2 min.)')
+console.log('  3. GSC verify:')
 console.log(`     SITE_URL=${JSON.stringify(SITE_URL)} doppler run --project nuxt_template --config base -- npm run setup:gsc:verify`)
+console.log('')
+console.log('  If GSC verify fails with "verification token could not be found":')
+console.log('  → Production may not be serving yet. Wait 1–2 min or run deploy again, then retry step 3.')
 console.log('══════════════════════════════════════════════════════════')

@@ -4,6 +4,7 @@ export default defineNuxtPlugin(() => {
   const runtimeConfig = useRuntimeConfig()
   const posthogApiKey = runtimeConfig.public.posthogPublicKey
   const posthogHost = runtimeConfig.public.posthogHost
+  const appName = (runtimeConfig.public.appName as string) || undefined
 
   if (!posthogApiKey || import.meta.server) return
 
@@ -20,6 +21,10 @@ export default defineNuxtPlugin(() => {
         return
       }
 
+      // Partition by app when using a single shared PostHog project (set APP_NAME in Doppler)
+      if (appName) {
+        ph.register({ app: appName })
+      }
       // Tag internal traffic
       if (window.location.hostname.endsWith('.pages.dev')) {
         ph.register({ is_internal_user: true })
