@@ -1,14 +1,16 @@
 {
   "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/schemas/config/wrangler.json",
-  "name": "nuxt-v4-template",
+  "name": "cosmic-click",
   "pages_build_output_dir": "dist",
   "compatibility_date": "2025-07-15",
-  "compatibility_flags": ["nodejs_compat_v2"],
+  "compatibility_flags": [
+    "nodejs_compat_v2"
+  ],
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "nuxt-v4-template-db",
-      "database_id": "83b9f319-c34e-4625-9c08-1eb384d9d36d"
+      "database_name": "cosmic-click-db",
+      "database_id": "a5dd6be3-be91-4354-b743-4e39c9fb45c1"
     }
   ]
 }
