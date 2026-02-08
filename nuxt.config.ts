@@ -42,14 +42,14 @@ export default defineNuxtConfig({
       posthogPublicKey: process.env.POSTHOG_PUBLIC_KEY || '',
       posthogHost: process.env.POSTHOG_HOST || 'https://us.i.posthog.com',
       gaMeasurementId: process.env.GA_MEASUREMENT_ID || '',
-      appUrl: process.env.SITE_URL || 'https://cosmic-click.pages.dev',
+      appUrl: process.env.SITE_URL || 'https://cosmic.nardukapps.com',
       // App name for partitioning in a single PostHog project (set APP_NAME in Doppler)
       appName: process.env.APP_NAME || pkg.name || ''
     }
   },
 
   site: {
-    url: 'https://cosmic-click.pages.dev',
+    url: 'https://cosmic.nardukapps.com',
     name: 'Cosmic Click'
   },
 
@@ -76,7 +76,7 @@ export default defineNuxtConfig({
         { property: 'og:title', content: 'Cosmic Click — Click the Cosmos!' },
         { property: 'og:description', content: 'A fast-paced cosmic clicker game. Click stars, planets, and comets before they vanish. Dodge black holes!' },
         { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: 'https://cosmic-click.pages.dev' },
+        { property: 'og:url', content: 'https://cosmic.nardukapps.com' },
         { property: 'og:site_name', content: 'Cosmic Click' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: 'Cosmic Click — Click the Cosmos!' },
@@ -84,7 +84,7 @@ export default defineNuxtConfig({
         { name: 'theme-color', content: '#030712' }
       ],
       link: [
-        { rel: 'canonical', href: 'https://cosmic-click.pages.dev' }
+        { rel: 'canonical', href: 'https://cosmic.nardukapps.com' }
       ]
     }
   }
